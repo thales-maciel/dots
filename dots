@@ -27,6 +27,8 @@ script_name=$(basename "$0")
 script_dir=$(dirname "$(readlink -f "$0")")
 include_file="$script_dir/dots.conf"
 
+cd "$script_dir" || exit 1
+
 ensure_rsync() {
     if ! command -v rsync &> /dev/null; then
         echo "Error: rsync not found. Please install it and try again"
